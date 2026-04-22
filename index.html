@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourShop | Web-Based Inventory System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <h1>Your<span>Shop</span></h1>
+        </div>
+        <nav class="nav-buttons">
+            <button class="btn-nav login-btn" onclick="showForm('login')">Login</button>
+            <button class="btn-nav reg-btn" onclick="showForm('register')">Register Shop</button>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        
+        <div class="hero-text">
+            <h2>Modernize Your Business</h2>
+            <p>Track assets, monitor stock levels, and record transactions in real-time.</p>
+        </div>
+
+        <div class="form-box">
+            
+            <div id="loginSection" class="form-content">
+                <div class="role-selector">
+                    <button onclick="setRole('admin')" id="adminBtn" class="active">Admin</button>
+                    <button onclick="setRole('staff')" id="staffBtn">Staff</button>
+                </div>
+                <h3>Login as <span id="roleText">Admin</span></h3>
+
+                    <form id="loginForm"> 
+                        <input type="hidden" id="selectedRole" value="admin">
+                        <input type="text" id="loginUser" placeholder="User ID" required>
+                        <input type="password" id="loginPass" placeholder="Password" required>
+                        
+                       <div style="text-align: right; margin-bottom: 10px;">
+    <a href="forgot-password.html" style="font-size: 0.8rem; color: #4834d4; text-decoration: none;">Forgot Password?</a>
+</div>
+
+                        <button type="submit" class="submit-btn">Enter Dashboard</button>
+                    </form>
+            </div>
+
+            <div id="registerSection" class="form-content" style="display: none;">
+    <h3>Register Your Shop</h3>
+    <p>Start managing your inventory across multiple locations.</p>
+    
+    <form id="registerForm">
+        <input type="text" id="regShopName" placeholder="Shop Name" required>
+        <input type="text" id="regOwnerName" placeholder="Owner Name" required>
+        
+        <hr style="margin: 20px auto; border: 0; border-top: 1px solid #e0e0e0; width: 90%;">
+        
+        <div style="text-align: left; margin-bottom: 10px; padding-left: 5px;">
+            <small style="color: #666; font-weight: 600;">Create Admin Credentials:</small>
+        </div>
+        
+        <input type="text" id="regUserId" placeholder="Create Unique Admin User ID" required>
+        <input type="password" id="regPassword" placeholder="Create Admin Password" required>
+        
+        <button type="submit" class="submit-btn register">Create Account</button>
+    </form>
+</div>
+        </div>
+    </main>
+
+    <script>
+        function showForm(type) {
+            const loginSec = document.getElementById('loginSection');
+            const regSec = document.getElementById('registerSection');
+            
+            if(type === 'login') {
+                loginSec.style.display = 'block';
+                regSec.style.display = 'none';
+            } else {
+                loginSec.style.display = 'none';
+                regSec.style.display = 'block';
+            }
+        }
+
+        function setRole(role) {
+            document.getElementById('selectedRole').value = role;
+            document.getElementById('roleText').innerText = role.charAt(0).toUpperCase() + role.slice(1);
+            document.getElementById('adminBtn').classList.toggle('active', role === 'admin');
+            document.getElementById('staffBtn').classList.toggle('active', role === 'staff');
+        }
+    </script>
+    <script src="../JS/auth.js"></script>
+</body>
+</html>

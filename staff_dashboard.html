@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard | YourShop</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+    <div class="side-logo-container" style="text-align: center; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); margin-bottom: 15px;">
+        <div class="side-logo" style="font-size: 1.6rem; font-weight: 700; color: #4834d4;">
+            Your<span style="color: #686de0;">Shop</span>
+        </div>
+        <div id="globalShopName" style="font-size: 0.8rem; color: #636e72; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">
+            Loading Shop...
+        </div>
+    </div>
+    
+    <nav>
+                <a href="staff_dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="staff_inventory.html"><i class="fas fa-box"></i> Inventory</a>
+                <a href="staff_billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+                <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+</aside>
+
+        <main class="main-content">
+            
+            <header class="top-bar" style="display: flex; justify-content: space-between;">
+    <div class="date-section">
+        <i class="fas fa-calendar-day" style="color: #2980b9; margin-right: 8px;"></i>
+        <span id="displayDate" class="date-text"></span> 
+    </div>
+
+    <div class="user-info">
+        <div class="profile" style="background: rgba(41, 128, 185, 0.1); padding: 8px 15px; border-radius: 12px;">
+            <i class="fas fa-user-shield" style="color: #2980b9;"></i> 
+            <span id="staffName" style="font-weight: 600; margin-left: 5px;">Staff Member</span>
+        </div>
+    </div>
+</header>
+
+            <section class="stats-container">
+                
+                <div class="card">
+                    <div class="card-icon" style="color: #27ae60;"><i class="fas fa-cart-arrow-down"></i></div>
+                    <div class="card-info">
+                        <h3>My Today's Sales</h3>
+                        <p id="staffSales">--</p> 
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="color: #2980b9;"><i class="fas fa-indian-rupee-sign"></i></div>
+                    <div class="card-info">
+                        <h3>Today's Earnings</h3>
+                        <p id="staffEarnings">--</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="color: #f39c12;"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="card-info">
+                        <h3>Total Product</h3>
+                        <p id="itemsHandled">--</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="color: #e74c3c;"><i class="fas fa-triangle-exclamation"></i></div>
+                    <div class="card-info">
+                        <h3>Low Stock Alerts</h3>
+                        <p id="staffLowStock">--</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="welcome-section" style="margin-top: 60px; text-align: center; color: #7f8c8d;">
+                <h2>Staff Panel Active</h2>
+                <p>Welcome back! Use the Billing module to process new customer orders[cite: 101].</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Automatic Date Display
+        document.getElementById('displayDate').innerText = new Date().toLocaleDateString('en-IN', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+    </script>
+   <script src="../JS/staff_dashboard_logic.js"></script>
+</body>
+</html>

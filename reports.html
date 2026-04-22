@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | YourShop</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="icon" type="image/png" href="assets/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Extra styling for charts height */
+        .chart-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        canvas {
+            max-height: 300px; /* Chart ko bohot bada hone se rokne ke liye */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+    <div class="side-logo-container" style="text-align: center; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); margin-bottom: 15px;">
+        <div class="side-logo" style="font-size: 1.6rem; font-weight: 700; color: #4834d4;">
+            Your<span style="color: #686de0;">Shop</span>
+        </div>
+        <div id="globalShopName" style="font-size: 0.8rem; color: #636e72; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">
+            Loading Shop...
+        </div>
+    </div>
+    
+    <nav>
+        <a href="admin_dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
+        <a href="inventory.html"><i class="fas fa-box"></i> Inventory</a>
+        <a href="transactions.html"><i class="fas fa-shopping-cart"></i> Transactions</a>
+        <a href="staff_management.html"><i class="fas fa-users"></i> Staff Management</a>
+        <a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+        <a href="billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+</aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="date-section">
+                    <i class="fas fa-chart-pie" style="color: #4834d4;"></i>
+                    <span style="font-weight: 600; margin-left: 10px;">Business Analytics (Real-time)</span>
+                </div>
+                <button class="add-btn" onclick="window.print()">
+                    <i class="fas fa-download"></i> Print Report
+                </button>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card-glass">
+                    <p>Total Revenue</p>
+                    <h3 id="monthlyRevenue">₹ 0</h3>
+                    <span class="trend up">Live from Database</span>
+                </div>
+                <div class="stat-card-glass">
+                    <p>Total Items Sold</p>
+                    <h3 id="totalSold">0</h3>
+                    <span class="trend up">Sales Volume</span>
+                </div>
+                <div class="stat-card-glass">
+                    <p>Inventory Categories</p>
+                    <h3 id="activeCategories">0</h3>
+                    <span class="trend">Diverse Stock</span>
+                </div>
+            </div>
+
+            <div class="reports-container" style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-top: 20px;">
+                <div class="chart-glass">
+                    <h3 style="margin-bottom: 15px;">Sales Trend (Last 7 Days)</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="chart-glass">
+                    <h3 style="margin-bottom: 15px;">Stock by Category</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../JS/reports_logic.js"></script>
+</body>
+</html>

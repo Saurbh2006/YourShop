@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions | YourShop</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+       <aside class="sidebar">
+    <div class="side-logo-container" style="text-align: center; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); margin-bottom: 15px;">
+        <div class="side-logo" style="font-size: 1.6rem; font-weight: 700; color: #4834d4;">
+            Your<span style="color: #686de0;">Shop</span>
+        </div>
+        <div id="globalShopName" style="font-size: 0.8rem; color: #636e72; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">
+            Loading Shop...
+        </div>
+    </div>
+    
+    <nav>
+        <a href="admin_dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
+        <a href="inventory.html"><i class="fas fa-box"></i> Inventory</a>
+        <a href="transactions.html"><i class="fas fa-shopping-cart"></i> Transactions</a>
+        <a href="staff_management.html"><i class="fas fa-users"></i> Staff Management</a>
+        <a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+        <a href="billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+</aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="date-section">
+                    <i class="fas fa-history" style="color: #4834d4;"></i>
+                    <span style="font-weight: 600; margin-left: 10px;">Transaction History</span>
+                </div>
+                <div class="top-bar-actions">
+    <div class="search-box-zen">
+        <i class="fas fa-search"></i>
+        <input type="text" id="txnSearch" placeholder="Search by Bill ID or Customer Name...">
+    </div>
+</div>
+            </header>
+
+            <section class="data-section-zen">
+                <div class="table-container-glass">
+                    <table>
+                                        <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Date & Time</th>
+                        <th>Items</th>
+                        <th>Total Amount</th>
+                        <th>Payment Mode</th> <th>Customer</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTableBody">
+                    </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../JS/transaction_logic.js"></script>
+</body>
+</html>

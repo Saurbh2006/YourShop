@@ -1,0 +1,351 @@
+/* Zen-Modern Login & Registration Design */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    /* Same Zen Background as Dashboard */
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #2d3436;
+    overflow-x: hidden;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #4834d4;
+}
+
+.logo span { color: #686de0; }
+
+.nav-buttons { display: flex; gap: 15px; }
+
+.btn-nav {
+    padding: 10px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.login-btn {
+    background: transparent;
+    color: #4834d4;
+    border: 1.5px solid #4834d4;
+}
+
+.login-btn:hover {
+    background: #4834d4;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.reg-btn {
+    background: #4834d4;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(72, 52, 212, 0.2);
+}
+
+.reg-btn:hover {
+    background: #3c2bb3;
+    transform: translateY(-2px);
+}
+
+/* --- Main Layout --- */
+.content-container {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    animation: fadeIn 1s ease;
+}
+
+.hero-text h2 {
+    font-size: 2.8rem;
+    color: #2d3436;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.hero-text p {
+    color: #636e72;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* --- Form Box: Glassmorphism Look --- */
+.form-box {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 30px;
+    width: 450px;
+    max-width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.role-selector {
+    display: flex;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+.role-selector button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #636e72;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.role-selector button.active {
+    background: white;
+    color: #4834d4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h3 {
+    margin-bottom: 20px;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+/* --- Inputs & Buttons --- */
+input {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+    border: 1.5px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #4834d4;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(72, 52, 212, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #4834d4;
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(72, 52, 212, 0.2);
+}
+
+.submit-btn:hover {
+    background: #3c2bb3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(72, 52, 212, 0.3);
+}
+
+.submit-btn.register {
+    background: #2ecc71;
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.2);
+}
+
+.submit-btn.register:hover {
+    background: #27ae60;
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .navbar { padding: 15px 20px; }
+    .hero-text h2 { font-size: 2rem; }
+    .form-box { padding: 30px 20px; }
+}
+/* Horizontal line (hr) ko sundar banane ke liye */
+hr {
+    border: 0;
+    height: 1px;
+    background: #eeeeee; /* Light color */
+    margin: 20px 10px;  /* Upar-niche 20px aur left-right se 10px gap */
+    width: auto;        /* Form ke width ke hisaab se adjust hoga */
+}
+
+/* Recovery Page Specific Styles */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.reset-container {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px); /* Glassmorphism effect */
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.reset-container:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background: #4834d4;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 20px rgba(72, 52, 212, 0.3);
+}
+
+h2 {
+    color: #2d3436;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+p {
+    color: #636e72;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Step Boxes */
+.step-box {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.step-box.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Input Styling */
+.reset-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #edf2f7;
+    border-radius: 15px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.reset-input:focus {
+    border-color: #4834d4;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(72, 52, 212, 0.1);
+}
+
+/* Button Styling */
+.action-btn {
+    width: 100%;
+    padding: 15px;
+    background: #4834d4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(72, 52, 212, 0.2);
+}
+
+.action-btn:hover {
+    background: #3c2bb3;
+    box-shadow: 0 12px 20px rgba(72, 52, 212, 0.3);
+    transform: translateY(-2px);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer Link */
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: #4834d4;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #2d3436;
+    text-decoration: underline;
+}

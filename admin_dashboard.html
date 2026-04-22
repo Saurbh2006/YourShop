@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | YourShop</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+       <aside class="sidebar">
+    <div class="side-logo-container" style="text-align: center; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); margin-bottom: 15px;">
+        <div class="side-logo" style="font-size: 1.6rem; font-weight: 700; color: #4834d4;">
+            Your<span style="color: #686de0;">Shop</span>
+        </div>
+        <div id="globalShopName" style="font-size: 0.8rem; color: #636e72; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">
+            Loading Shop...
+        </div>
+    </div>
+    
+    <nav>
+        <a href="admin_dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
+        <a href="inventory.html"><i class="fas fa-box"></i> Inventory</a>
+        <a href="transactions.html"><i class="fas fa-shopping-cart"></i> Transactions</a>
+        <a href="staff_management.html"><i class="fas fa-users"></i> Staff Management</a>
+        <a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+        <a href="billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+</aside>
+
+        <main class="main-content">
+           <header class="top-bar" style="display: flex; justify-content: space-between;">
+    <div class="date-section">
+        <i class="fas fa-calendar-alt" style="color: #4834d4; margin-right: 8px;"></i>
+        <span id="displayDate" class="date-text"></span> 
+    </div>
+
+ <div class="user-info">
+    <div class="profile-container">
+        <div class="profile-trigger" onclick="toggleDropdown()">
+            <div class="profile-box">
+                <i class="fas fa-user-circle"></i> 
+                <span id="adminName">Admin</span>
+                <i class="fas fa-chevron-down arrow-icon"></i>
+            </div>
+        </div>
+
+        <div id="userDropdown" class="dropdown-menu-zen">
+            
+            <a href="profile.html"><i class="fas fa-user-gear"></i> My Profile</a>
+            <hr>
+            <a href="index.html" class="dropdown-logout"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+    </div>
+</div>
+</header>
+
+            <section class="stats-container">
+                
+                <div class="card">
+                    <div class="card-icon" style="color: #27ae60;"><i class="fas fa-indian-rupee-sign"></i></div>
+                    <div class="card-info">
+                        <h3>Today's Earnings</h3>
+                        <p id="todayEarnings">--</p> 
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="color: #2980b9;"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="card-info">
+                        <h3>Total Products</h3>
+                        <p id="totalOrders">--</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="color: #f39c12;"><i class="fas fa-boxes-stacked"></i></div>
+                    <div class="card-info">
+                        <h3>Total Assets Value</h3>
+                        <p id="totalAssets">--</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="color: #e74c3c;"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="card-info">
+                        <h3>Low Stock Alerts</h3>
+                        <p id="lowStockCount">--</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="welcome-section" style="margin-top: 50px; text-align: center; color: #7f8c8d;">
+                <h2>Welcome to Your Shop Overview</h2>
+                <p>Select a module from the sidebar to manage your inventory</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Automatic Date Display logic
+        document.getElementById('displayDate').innerText = new Date().toLocaleDateString('en-IN', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+    </script>
+    <script src="../JS/admin_logic.js"></script>
+</body>
+</html>
